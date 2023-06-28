@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { setCookie } from 'cookies-next'
 const page = () => {
-    const [users,setUsers]=useState()
+    const [users,setUsers]=useState([])
     const [mail,setMail]=useState("")
     const [password,setPassword]=useState("")
     const [error,setError]=useState("")
@@ -17,9 +17,11 @@ const page = () => {
             password
         }
         if(users){
-            const result=users.filter(elem=>{
+            const result=users.filter((elem:any)=>{
                 return elem.mail == data.mail
-         })
+            })
+     
+         
          if(result.length>0){
              if(result[0].password == data.password){
                 setError("")
