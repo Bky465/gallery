@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
-
+import { useRouter } from 'next/navigation'
 
 const getlocdata=()=>{
     if(typeof window !== 'undefined'){
@@ -18,7 +18,7 @@ const getlocdata=()=>{
 }
 const page = () => {
 
-
+    const router=useRouter()
     const [mail,setMail]=useState("")
     const [password,setPassword]=useState("")
     const [confirmPassword,setConfirmPassword]=useState("")
@@ -34,6 +34,7 @@ const page = () => {
         setMail("")
         setPassword("")
         setConfirmPassword("")
+        router.push('/login')
      
     }
 useEffect(()=>{
