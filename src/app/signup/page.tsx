@@ -2,17 +2,19 @@
 import React from 'react'
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
-import { json } from 'stream/consumers'
-import { log } from 'console'
+
 
 const getlocdata=()=>{
-    let user=localStorage.getItem("User");
-    if(user){
-        return JSON.parse(localStorage.getItem("User") as string)
+    if(typeof window !== 'undefined'){
+        let user=localStorage.getItem("User");
+        if(user){
+            return JSON.parse(localStorage.getItem("User") as string)
+        }
+        else{
+            return []
+        }
     }
-    else{
-        return []
-    }
+   
 }
 const page = () => {
 
