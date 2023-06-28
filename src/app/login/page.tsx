@@ -23,7 +23,7 @@ const page = () => {
      
          
          if(result.length>0){
-             if(result[0].password == data.password){
+             if(result[0]['password'] == data.password){
                 setError("")
                 setCookie('logged', true);
                 router.push('/')
@@ -45,7 +45,7 @@ const page = () => {
     }
     useEffect(()=>{
       
-           const locdata=JSON.parse(localStorage.getItem("User"))
+           const locdata=JSON.parse(localStorage.getItem("User") as string)
            setUsers(locdata)
     },[])
 

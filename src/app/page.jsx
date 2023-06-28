@@ -21,7 +21,7 @@ const router=useRouter()
   const [currentPage,setCurrentPage]=useState(1)
   const [loading,setLoading]=useState(false)
 
-  const getCuratedPhotos = async (query:any) => {
+  const getCuratedPhotos = async (query) => {
     setLoading(true);
     const res = await fetch(
       `https://api.pexels.com/v1/search?query=${query =="" ?"all":query}&page=${currentPage}&per_page=12`,
@@ -34,7 +34,8 @@ const router=useRouter()
     setLoading(false);
     console.log(responseJson);
     
-      setGallery((prev:any) => [...prev, ...responseJson.photos]);
+      setGallery((prev) => [...prev, ...responseJson.photos]);
+     
   };
   const handelInfiniteScroll=()=>{
     if (
@@ -51,7 +52,7 @@ const router=useRouter()
         setQueryvalue("")
       }
   }
-  const handleCategory=(cat:any)=>{
+  const handleCategory=(cat)=>{
     setGallery([])
     getCuratedPhotos(cat)
   }

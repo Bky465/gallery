@@ -8,7 +8,7 @@ import { log } from 'console'
 const getlocdata=()=>{
     let user=localStorage.getItem("User");
     if(user){
-        return JSON.parse(localStorage.getItem("User"))
+        return JSON.parse(localStorage.getItem("User") as string)
     }
     else{
         return []
